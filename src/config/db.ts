@@ -1,10 +1,9 @@
 import 'dotenv/config';
 
 import mongoose from 'mongoose';
-const db = process.env.MONGO_URI || '"mongodb://localhost:27017/test"';
-console.log(db);
+const db = process.env.MONGO_URI || 'mongodb://localhost:27017/test';
 
-export const connectDB = async () => {
+export const connectDB = async ():Promise<unknown> => {
   try {
     await mongoose.connect(db);
     return console.log('MongoDB Connected...');
